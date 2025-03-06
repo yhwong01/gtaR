@@ -21,3 +21,17 @@ library(GTA)
 restaurants <- get_gta_restaurants(city="Burnaby", category="Sushi")
 head(restaurants)
 ```
+
+### Sample output:
+
+| name          | address     | category | rating | reviews | is_closed |
+|---------------|-------------|----------|--------|---------|-----------|
+| Sushi Garden  | 123 Main St | Sushi    | 4.5    | 220     | FALSE     |
+| Sushi House   | 456 Elm St  | Sushi    | 4.4    | 184     | FALSE     |
+
+For visualization, users can execute a command such as:
+
+```r
+plot_top_restaurants(city="Richmond", category="Dim Sum")
+# Produces an intuitive bar chart of top-rated Dim Sum restaurants.
+```
