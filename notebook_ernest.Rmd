@@ -1,0 +1,42 @@
+---
+title: "DATA534 project notebook_Ernest"
+author: "Yin Hei Ernest Wong"
+date: "2025-03-17"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### **March 17, 2025**
+#### **Tasks Completed**
+- Implemented `search_restaurants()` function to fetch Yelp restaurant data.
+- Added error handling for failed API requests.
+- Converted raw JSON data into a structured tidy dataframe.
+
+#### **Role in the Bigger Picture**
+- This function provides the base for retrieving restaurant data, enabling users to search by name, location, and category.
+- This will later be used for visualization and further analytics.
+
+#### **Challenges & Solutions**
+- **Issue:** API requests failing due to missing API key.
+  - *Solution:* Implemented `get_yelp_api_key()` function to securely retrieve the key from `.Renviron`.
+  
+- **Issue:** Some restaurants missing `price` values.
+  - *Solution:* Used `ifelse(is.null(x$price), NA, x$price)` to handle missing values.
+
+#### **Development Decisions**
+- **Decision:** Decided to use `httr::GET()` instead of `curl` for API requests.
+  - *Reasoning:* `httr` provides better integration with R and allows for structured query handling.
+  - *Impact:* Simplifies error handling and improves maintainability.
+
+#### **Next Steps**
+- Implement `get_restaurant_details()` function to fetch detailed restaurant information.
+- Add a function to visualize restaurant locations on a map.
+- Write unit tests for API request handling.
+
+## **Code & Commit History**
+- `https://github.com/yhwong01/gtaR/commit/95760953fe6ee94e7212b0c8cbb13d3b37a41653
+
+---
