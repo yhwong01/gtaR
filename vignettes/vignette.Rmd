@@ -148,6 +148,7 @@ plot_best_restaurants(df, top_n = 10)
 
 **Example:**
 ```{r}
+restaurants <- search_restaurants(location = "Vancouver, BC", term = "Sushi", limit = 10)  
 plot_best_restaurants(restaurants, top_n = 10)
 ```
 
