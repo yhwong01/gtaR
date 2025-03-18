@@ -1,4 +1,6 @@
 # GTA: Greater Vancouver's Taste Analytics
+  
+![Build Status](https://github.com/yhwong01/gtaR/actions/workflows/r-ci.yml/badge.svg)
 
 ### Team Members:
 - Yin Hei Ernest Wong
