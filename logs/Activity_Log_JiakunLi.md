@@ -23,4 +23,5 @@ Uploaded `list_available_locations.R` and `plot_best_restaurants.R`.
 Date: 2025/03/17
 
 Test all the functions.
-Uploaded `vignettes` 
+Uploaded `vignettes`.
+Test `gtaR_0.1.0.tar.gz'.
