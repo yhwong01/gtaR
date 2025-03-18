@@ -31,6 +31,10 @@ Sys.setenv(YELP_API_KEY = "your_api_key_here")
 ```
 Ensure you restart your R session for the changes to take effect.
 
+### API Key Handling
+
+The function `get_yelp_api_key()` is a helper function used internally by other package functions to securely retrieve the API key. Users do not need to call this function directly. Instead, ensure that the API key is set up correctly in your environment before using any package functions that interact with the Yelp API.
+
 ---
 
 ## Functions and Usage
