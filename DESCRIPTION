@@ -1,5 +1,4 @@
 Package: gtaR
-Type: Package
 Title: Simplifies Yelp API Access and Provides Analytical Insights for Restaurants in Greater Vancouver
 Version: 0.1.0
 Author: Ernest Wong, Shiqi Zhang, Jiakun Li
@@ -9,7 +8,6 @@ Description:
     allowing users to retrieve, analyze, and visualize restaurant data in the Greater Vancouver Area. 
     With built-in data cleaning and structured output, the package simplifies restaurant search queries, 
     facilitates statistical analysis of ratings and cuisine types, and enables users to generate insightful visualizations.
-    
 Key Features:
     - **Restaurant Search:** Query Yelp's API to retrieve restaurant details based on location, cuisine type, and other filters.
     - **Cuisine Analysis:** Identify the best-rated cuisines in a given area by aggregating ratings across multiple restaurants.
@@ -17,17 +15,10 @@ Key Features:
     - **Restaurant Details:** Retrieve detailed business information, including address, ratings, and price range.
     - **Top Restaurant Visualization:** Generate plots of the highest-rated restaurants based on user-defined criteria.
     - **Predefined Location Support:** Easily search within predefined cities in the Greater Vancouver Area.
-
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
-Depends: R (>= 3.5.0)
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-Suggests: 
-    testthat (>= 3.0.0),
-    knitr,
-    rmarkdown
 Imports: 
     httr,
     jsonlite,
@@ -37,4 +28,6 @@ Imports:
     ggrepel,
     stringdist,
     tibble
+Suggests: 
+    testthat (>= 3.0.0)
 URL: https://github.com/yhwong01/gtaR
