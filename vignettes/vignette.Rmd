@@ -1,0 +1,192 @@
+---
+title: "GTA: Greater Vancouver's Taste Analytics"
+author: "Yin Hei Ernest Wong, Shiqi Zhang, Jiakun Li"
+date: "`r Sys.Date()`"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+The **GTA (Greater Vancouver's Taste Analytics)** package is designed to help users analyze restaurant data in the Greater Vancouver Area using the **Yelp Fusion API**. This package provides functions to:
+- Retrieve restaurant details (name, rating, address, cuisine type, etc.).
+- Identify the highest-rated cuisines in a given area.
+- Perform fuzzy matching on cuisine names.
+- Visualize top restaurants based on ratings and reviews.
+
+The **Yelp Fusion API** serves as the data source, allowing us to access up-to-date restaurant information.
+
+---
+
+# Installation
+
+To install **GTA** from GitHub, use:
+
+```{r}
+library(remotes)
+install_github("yhwong01/gtaR")
+```
+
+Once installed, load the package:
+```{r}
+library(gtaR)
+```
+
+---
+
+Import Extra libraries:
+```{r}
+library(httr)        # For making API requests to Yelp
+library(jsonlite)    # For parsing JSON responses
+library(dplyr)       # For data wrangling
+library(ggplot2)     # For data visualization
+library(ggmap)       # For mapping restaurant locations
+library(ggrepel)     # For avoiding label overlap in plots
+library(stringdist)  # For fuzzy text matching
+
+```
+
+---
+
+# Setting Up Your Yelp API Key
+
+Before using any functions that access the Yelp API, you must set up your API key. Store it in your `.Renviron` file:
+
+```{r}
+Sys.setenv(YELP_API_KEY = "XRfUaJr5P_Mk5mWU_uC4dfTaqhBbxbnvSXhW1_NBSnwtqbMm3ebJFZ6hOYoSocdDtH2KgDtRI2560l-wI1Wh_8wAthElHxCdl9-1CReVa3yGynjZ5NC95QrgNkDJZ3Yx")
+```
+
+Restart your R session for the changes to take effect.
+
+---
+
+## **1. search_restaurants()**
+
+Queries Yelp for restaurants based on location and filters.
+
+**Function Usage:**
+```{r}
+search_restaurants(location = "Vancouver, BC", term = "restaurant", limit = 10,  
+sort_by = "rating", min_price = NULL, max_price = NULL, price_sort = NULL)
+```
+
+**Example:**
+```{r}
+restaurants <- search_restaurants(location = "Richmond, BC", term = "ramen", limit = 5)
+print(restaurants)
+```
+
+---
+
+# Functions and Usage
+
+## **2. best_cuisine_in_area()**
+
+Aggregates restaurant ratings to find the highest-rated cuisines in a specified location.
+
+**Function Usage:**
+```{r}
+best_cuisine_in_area(location = "Vancouver, BC", limit = 10)
+```
+
+**Example:**
+```{r}
+best_cuisines <- best_cuisine_in_area("Burnaby, BC", limit = 15)
+print(best_cuisines)
+```
+
+---
+
+## **3. find_closest_cuisine_match()**
+
+Uses fuzzy string matching to find the closest known cuisine type.
+
+**Function Usage:**
+```{r}
+find_closest_cuisine_match(input_text)
+```
+
+**Example:**
+```{r}
+best_match <- find_closest_cuisine_match("Italien")  # Should return "Italian"
+print(best_match)
+```
+
+---
+
+## **4. get_restaurant_details()**
+
+Retrieves details about a restaurant based on name or address.
+
+**Function Usage:**
+```{r}
+get_restaurant_details(query, location = "Vancouver, BC")
+```
+
+**Example:**
+```{r}
+restaurant_info <- get_restaurant_details("Sushi Yama", "Vancouver, BC")
+print(restaurant_info)
+```
+
+---
+
+
+## **5. plot_best_restaurants()**
+
+Visualizes the best restaurants based on ratings and review count.
+
+**Function Usage:**
+```{r}
+plot_best_restaurants(df, top_n = 10)
+```
+
+**Example:**
+```{r}
+plot_best_restaurants(restaurants, top_n = 10)
+```
+
+**Example Output:**
+```{r}
+# A scatter plot of the top-rated restaurants
+```
+
+![plot_best_restaurants](https://github.com/user-attachments/assets/5e7f1d5c-95d5-4696-85de-d33ca03867a7)
+
+---
+
+## **6. list_available_locations()**
+
+Returns a list of predefined cities available for restaurant searches.
+
+**Function Usage:**
+```{r}
+list_available_locations()
+```
+
+**Example:**
+```{r}
+locations <- list_available_locations()
+print(locations)
+```
+
+---
+
+# Conclusion
+
+The **GTA** package simplifies restaurant data retrieval and visualization for the **Greater Vancouver Area** using Yelp's API. Whether you want to find the best-rated cuisine, search for restaurants, or visualize trends, **GTA** provides an easy-to-use interface.
+
+For more details, visit our [GitHub repository](https://github.com/yhwong01/gtaR).
+
+---
+
+# License
+
+This package is licensed under the **MIT License**.
+
+---

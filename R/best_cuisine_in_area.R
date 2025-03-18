@@ -22,3 +22,4 @@ best_cuisine_in_area <- function(location = "Vancouver, BC", limit = 10) {
 
   return(best_cuisine)
 }
+
