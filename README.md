@@ -21,7 +21,12 @@ library(remotes)
 install_github("yhwong01/gtaR")  
 ```
 
-Load the package after installation:
+To install from the package archive file:
+```r
+install.packages("gtaR_0.1.0.tar.gz")
+```
+
+After installation, load the package using:
 ```r
 library(gtaR)
 ```
