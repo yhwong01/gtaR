@@ -1,0 +1,15 @@
+library(testthat)
+library(httr)
+library(jsonlite)
+library(dplyr)
+library(ggplot2)
+library(ggmap)
+library(ggrepel)
+library(stringdist)
+library(tibble)
+
+test_that("search_restaurants() returns valid results", {
+  df <- search_restaurants(location = "Vancouver, BC", term = "Sushi", limit = 5)
+  expect_s3_class(df, "tbl_df")
+  expect_true(nrow(df) > 0)
+})
