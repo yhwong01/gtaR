@@ -25,7 +25,7 @@ search_restaurants <- function(location = "Vancouver, BC", term = "restaurant", 
   url <- "https://api.yelp.com/v3/businesses/search"  # Yelp API endpoint
 
   # Adjust term when limit is 10 (to enforce exact type filtering)
-  if (limit == 10 && term != "restaurant") {
+  if (term != "restaurant") {
     query_term <- term  # Use the specified type directly
   } else {
     query_term <- "restaurant"  # Default term for general searches
