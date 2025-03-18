@@ -1,0 +1,12 @@
+Package: gtaR
+Title: gtaR
+Version: 0.1.0
+Authors@R: 
+    person("Ernest", "Wong", , "wongernest1639@gmail.com", role = c("aut", "cre"))
+Description: What the package does (one paragraph).
+License: `use_mit_license()`Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
