@@ -175,6 +175,7 @@ A ggplot object displaying the top restaurants.
 
 **Example Usage and Output:**  
 ```r
+restaurants <- search_restaurants(location = "Vancouver, BC", term = "Sushi", limit = 10)  
 plot_best_restaurants(restaurants, top_n = 10)
 ```
 <img width="652" alt="plot_restaurants" src="https://github.com/user-attachments/assets/5e7f1d5c-95d5-4696-85de-d33ca03867a7" />
