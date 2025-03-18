@@ -1,12 +1,40 @@
 Package: gtaR
-Title: gtaR
+Type: Package
+Title: Simplifies Yelp API Access and Provides Analytical Insights for Restaurants in Greater Vancouver
 Version: 0.1.0
-Authors@R: 
-    person("Ernest", "Wong", , "wongernest1639@gmail.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`Encoding: UTF-8
+Author: Ernest Wong, Shiqi Zhang, Jiakun Li
+Maintainer: Ernest Wong <wongernest1639@gmail.com>, Shiqi Zhang <shiqizhang006@gmail.com>, Jiakun Li <jacob.jiakunli@gmail.com>
+Description: 
+    The "GTA" (Greater Vancouver's Taste Analytics) package is designed to streamline access to the Yelp Fusion API, 
+    allowing users to retrieve, analyze, and visualize restaurant data in the Greater Vancouver Area. 
+    With built-in data cleaning and structured output, the package simplifies restaurant search queries, 
+    facilitates statistical analysis of ratings and cuisine types, and enables users to generate insightful visualizations.
+    
+Key Features:
+    - **Restaurant Search:** Query Yelp's API to retrieve restaurant details based on location, cuisine type, and other filters.
+    - **Cuisine Analysis:** Identify the best-rated cuisines in a given area by aggregating ratings across multiple restaurants.
+    - **Fuzzy Matching:** Suggest the closest known cuisine category for user-input text using fuzzy string matching.
+    - **Restaurant Details:** Retrieve detailed business information, including address, ratings, and price range.
+    - **Top Restaurant Visualization:** Generate plots of the highest-rated restaurants based on user-defined criteria.
+    - **Predefined Location Support:** Easily search within predefined cities in the Greater Vancouver Area.
+
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 3.5.0)
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Suggests: 
-    testthat (>= 3.0.0)
-Config/testthat/edition: 3
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown
+Imports: 
+    httr,
+    jsonlite,
+    dplyr,
+    ggplot2,
+    ggmap,
+    ggrepel,
+    stringdist,
+    tibble
+URL: https://github.com/yhwong01/gtaR
